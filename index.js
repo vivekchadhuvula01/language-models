@@ -6,9 +6,9 @@ import { config } from "dotenv";
 config();
 
 const model = new ChatGroq({
-    model: "mixtral-8x7b-32768",
+    model: "llama-3.1-70b-versatile",
     apiKey: process.env.GROQ_API_KEY,
-    temperature: 0
+    temperature: 0.6
 });
 
 const messages = [
