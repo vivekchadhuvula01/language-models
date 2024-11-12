@@ -19,7 +19,6 @@ const messages = [
 const parser = new StringOutputParser();
 // const result = await model.invoke(messages);
 // await parser.invoke(result)
-
 // chaining together
 
 const chain = model.pipe(parser)
@@ -38,9 +37,13 @@ const promptValue = await promptTemplate.invoke({
     text: 'how are you',
 });
 
-
+async function  languagemodel(language,text) {
+    
 const languageAssistChain = promptTemplate.pipe(model).pipe(parser);
-const result = await languageAssistChain.invoke({ language: 'french', text: "i am very tall" });
+const result = await languageAssistChain.invoke({ language: `${language}`, text: `${text}` });
 const history = []
 history.push(result)
 console.log(history)
+} 
+
+languagemodel('latin ', 'i am very tall');
